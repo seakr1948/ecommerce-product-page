@@ -47,7 +47,7 @@ function App() {
             <input readOnly type="text" min="0" id="quantity" value={quantity} />
             <img src={plus} alt="minus" onClick={() => { setQuantity(quantity + 1) }}/>
           </div>
-          <button className="cart-btn px-3 py-3"> <img src={Cart}  /> Add to cart</button>
+          <button className="cart-btn px-3 py-3"> <img src={Cart}  alt="cart" /> Add to cart</button>
         </div>
         
       </div>
