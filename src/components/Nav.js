@@ -6,9 +6,7 @@ import Menu from '../images/icon-menu.svg'
 const Nav = () => {
     return (
             <nav className="nav-bar px-2 py-4 d-flex justify-content-between align-items-center">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
+                
                 <div className="menu-logo d-flex align-items-center">
                     <img className="menu " src={Menu} alt="menu" />
                     <h1 className="outline">Sneakers</h1>
