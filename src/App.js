@@ -3,13 +3,13 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Nav from './components/Nav';
-import LightBox from './components/LightBox';
+
 
 function App() {
   return (
     <div className="App d-flex flex-column justify-content-center align-items-center">
       <div className="container p-0">
-        {/* <Nav /> */}
+        <Nav />
         {/* <LightBox/>
         <section className="product-description p-4">
           <h1>Sneaker Company</h1>
