@@ -10,7 +10,7 @@ function App() {
     <div className="App d-flex flex-column justify-content-center align-items-center">
       <div className="container p-0">
         <Nav />
-        {/* <LightBox/>
+        {/* <LightBox/> */}
         <section className="product-description p-4">
           <h1>Sneaker Company</h1>
           <h2>Fall Limited Edition Sneakers</h2>
@@ -27,7 +27,7 @@ function App() {
           </div>
           
         </div>
-        </section> */}
+        </section>
         
       </div>
       
