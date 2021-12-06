@@ -1,4 +1,4 @@
-import Image_1 from '../images/image-product-1.jpg'
+
 
 
 const LightBox = () => {
