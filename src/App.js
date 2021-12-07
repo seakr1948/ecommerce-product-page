@@ -9,12 +9,21 @@ import LightBox from './components/LightBox';
 import SideNav from './components/SideNav';
 import minus from './images/icon-minus.svg';
 import plus from './images/icon-plus.svg';
-import Cart from './images/icon-cart.svg';
+import {ReactComponent as Cart} from './images/icon-cart.svg';
 
 function App() {
 
   const [isVisible, setIsVisible] = useState(false);
   const [quantity, setQuantity] = useState(0);
+
+  const increment = () => {
+    setQuantity(quantity + 1);
+  }
+
+  const decrement = () => {
+    setQuantity(quantity - 1);
+  }
+
   return (
     <div className="App d-flex flex-column justify-content-center align-items-center">
       <div className="container-fluid p-0">
@@ -43,11 +52,16 @@ function App() {
 
         <div className="add-cart d-flex flex-column px-4 justify-content-center">
           <div className="input d-flex align-items-center justify-content-around py-2">
-            <img src={minus} alt="minus" onClick={() => { if(quantity > 0){ setQuantity(quantity - 1)}}}/>
-            <input readOnly type="text" min="0" id="quantity" value={quantity} />
-            <img src={plus} alt="minus" onClick={() => { setQuantity(quantity + 1) }}/>
+            <button className="d-flex justify-content-center align-items-center" onClick={() => { if(quantity > 0){ decrement()}}}>
+              <img src={minus} alt="minus" />
+            </button>
+            <input readOnly type="text" id="quantity" value={quantity} />
+            <button className="d-flex justify-content-center align-items-center" onClick={() => { increment() }}>
+              <img src={plus} alt="minus" />
+            </button>
+            
           </div>
-          <button className="cart-btn px-3 py-3"> <img src={Cart}  alt="cart" /> Add to cart</button>
+          <button className="cart-btn px-3 py-3 d-flex align-items-center justify-content-center"> <Cart className="cart-btn-icon" /> Add to cart</button>
         </div>
         
       </div>

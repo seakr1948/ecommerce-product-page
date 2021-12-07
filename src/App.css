@@ -207,14 +207,17 @@ img{
   background: var(--Light-grayish-blue);
 }
 
-.input img{
+.input button{
   cursor: pointer;
-  width: 1em;
-  height: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  border: none;
+  background: transparent;
 }
 
-.input > *:first-child{
-  height: 5px;
+.input > * > button{
+ width: 100%;
+ outline: 1px solid red;
 }
 
 #quantity{
@@ -235,4 +238,12 @@ img{
   display: inline-block;
   width: 20px;
   color: white;
+}
+
+.cart-btn-icon{
+  margin-right: 10px;
+}
+
+.cart-btn-icon path{
+  fill: white;
 }
