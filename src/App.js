@@ -51,7 +51,7 @@ function App() {
         </section>
 
         <div className="add-cart d-flex flex-column px-4 justify-content-center">
-          <div className="input d-flex align-items-center justify-content-around py-2">
+          <div className="input d-flex align-items-center justify-content-around py-2 px-2">
             <button className="d-flex justify-content-center align-items-center" onClick={() => { if(quantity > 0){ decrement()}}}>
               <img src={minus} alt="minus" />
             </button>

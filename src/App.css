@@ -56,23 +56,9 @@ img{
   outline: 1px solid red;
 }
 
-
 /* ------------------------------------------------------------------------------------- */
-/* NavBar */
+/* SideBar */
 /* ------------------------------------------------------------------------------------- */
-
-.navbar{
-  width: 100%;
-}
-.menu-logo h1{
-  /* font-family: 'Mulish', sans-serif; */
-  margin-left: 20px;
-  text-transform: lowercase;
-  font-size: 2em;
-  font-weight: 700;
-  letter-spacing: -1px;
- 
-}
 
 .side-nav-overlay{
   width: 100vw;
@@ -101,11 +87,35 @@ img{
   border: none;
   background-color: transparent;
   font-size: 2em;
+  color: black;
 }
 
 .side-nav ul{
   list-style: none;
 }
+
+.side-nav li {
+  margin: 1em  1em;
+}
+
+
+/* ------------------------------------------------------------------------------------- */
+/* NavBar */
+/* ------------------------------------------------------------------------------------- */
+
+.navbar{
+  width: 100%;
+}
+.menu-logo h1{
+  /* font-family: 'Mulish', sans-serif; */
+  margin-left: 20px;
+  text-transform: lowercase;
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: -1px;
+ 
+}
+
 
 .menu{
   margin-left: 1em;
@@ -198,9 +208,12 @@ img{
   width: 100%;
   flex-flow: row nowrap;
   background: var(--Light-grayish-blue);
+  border-radius: 10px;
+  
 }
 
 .input input{
+  width: auto;
   text-align: center;
   outline: none;
   border: none;
@@ -208,20 +221,20 @@ img{
 }
 
 .input button{
+  
   cursor: pointer;
-  width: 1.5em;
-  height: 1.5em;
+  min-width: 1.5em;
+  min-height: 1.5em;
   border: none;
   background: transparent;
 }
 
 .input > * > button{
  width: 100%;
- outline: 1px solid red;
 }
 
 #quantity{
-  
+  width: 100%;
   font-size: 20px;
   font-weight: 700;
 }
