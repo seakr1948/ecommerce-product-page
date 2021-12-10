@@ -1,30 +1,46 @@
 
-import Cart from '../images/icon-cart.svg'
+
 import Avatar from '../images/image-avatar.png'
 import Menu from '../images/icon-menu.svg'
+import CartComponent from '../components/CartComponent'
 
-const Nav = ({toggleVisible}) => {
+const Nav = ({toggleVisible, cartQuantity}) => {
     return (
-            <nav className="nav-bar px-2 py-4 d-flex justify-content-between align-items-center">
-                
-                <div className="menu-logo d-flex align-items-center">
-                    <img className="menu " src={Menu} alt="menu" onClick={() => toggleVisible(true)}/>
-                    <h1 >Sneakers</h1>
-                </div>
-                <div className="nav-links">
-                    <ul>
-                        <li>Collections</li>
-                        <li>Men</li>
-                        <li>Women</li>
-                        <li>About</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
-                <div className="cart-avatar d-flex align-items-center">
-                    <img className="cart" src={Cart} alt="cart" srcset="" />
-                    <img className="avatar" src={Avatar} alt="Avatar" srcset="" />
-                </div>
-            </nav>
+            <div className="nav-container">
+                <nav className="nav-bar d-flex justify-content-between align-items-center">
+                    
+                    <div className="menu-logo d-flex">
+                        
+                        <img className="menu" src={Menu} alt="menu" onClick={() => toggleVisible(true)}/>
+                        
+                        
+                        <h1 >Sneakers</h1>
+                        <ul id="nav-links" >
+                            <li className="d-flex justify-content-center align-items-center">
+                                <button>Collections</button>
+                            </li>
+                            <li className="d-flex justify-content-center align-items-center">
+                                <button>Men</button>
+                            </li>
+                            <li className="d-flex justify-content-center align-items-center">
+                                <button>Women</button>
+                            </li>
+                            <li className="d-flex justify-content-center align-items-center">
+                                <button>About</button>
+                            </li>
+                            <li className="d-flex justify-content-center align-items-center">
+                                <button>Contacts</button>
+                            </li>
+                        </ul>
+                    
+                    </div>
+                    
+                    <div className="cart-avatar d-flex align-items-center">
+                        <CartComponent cartQuantity={cartQuantity}/>
+                        <img className="avatar" src={Avatar} alt="Avatar" srcset="" />
+                    </div>
+                </nav>
+            </div>
     )
 }
 
