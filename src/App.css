@@ -1,12 +1,12 @@
 .App {
   height: 100%;
   width: 100%;
+  
 }
 
 :root{
   --Orange: hsl(26, 100%, 55%);
   --Pale-orange: hsl(25, 100%, 94%);
-
   --Very-dark-blue: hsl(220, 13%, 13%);
   --Dark-grayish-blue: hsl(219, 9%, 45%);
   --Grayish-blue: hsl(220, 14%, 75%);
@@ -52,10 +52,6 @@ img{
   width: 100%;
 }
 
-.outline{
-  outline: 1px solid red;
-}
-
 /* ------------------------------------------------------------------------------------- */
 /* SideBar */
 /* ------------------------------------------------------------------------------------- */
@@ -66,7 +62,6 @@ img{
 
 .side-nav-closed{
   left:-100%;
-  box-shadow: 0 0 0 transparent;
 }
 
 .side-nav-overlay{
@@ -88,12 +83,10 @@ img{
 .side-nav{
   z-index: 999;
   position: fixed;
- 
-  right: 0;
   height: 100%;
-  width: 80%;
+  width: 70%;
   background-color: white;
-  transition: left 0.2s;
+  transition: left 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .side-nav button{
@@ -134,7 +127,7 @@ img{
 
 .nav-bar{
   width: 100%;
-  max-width: 700px;
+  
 }
 
 .menu-logo{
@@ -171,7 +164,16 @@ img{
 }
 
 .avatar{
-  width: 30px;
+  cursor: pointer;
+  width: 40px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  transition: border 0.2s ease-in;
+}
+
+.avatar:hover,
+.avatar:focus{
+  border: 3px solid var(--Orange);
 }
 
 #nav-links{
@@ -205,6 +207,150 @@ img{
   
 }
 
+.cart-container > button{
+  border: none;
+  background-color: transparent;
+}
+/* ------------------------------------------------------------------------------------- */
+/* Cart Modal */
+/* ------------------------------------------------------------------------------------- */
+.cart-modal{
+  
+  display: none;
+  position: absolute;
+  border-radius: 10px;
+  background: white;
+  width: 80%;
+  max-width: 400px;
+  top: 6em;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  box-shadow: 0px 15px 10px 10px hsla(0,0%,0%, 0.3 );
+}
+
+#cart-modal-open{
+  display: block;
+}
+
+.cart-modal-header{
+  border-bottom: 1px solid var(--Grayish-blue);
+}
+
+.cart-modal-header p{
+  margin: 1.2em;
+  font-weight: 700;
+}
+
+.cart-filled button{
+  border: none;
+  background-color: transparent;
+}
+
+.cart-filled img{
+  height: 50px;
+  width: auto;
+  border-radius: 3px;
+}
+
+.cart-filled{
+  width: 100%;
+}
+
+.cart-filled p{
+  margin: auto 0;
+  color: var(--Grayish-blue);
+}
+
+.cart-filled > *{
+  margin: auto 0.5em;
+}
+
+.cart-filled span{
+  display: block;
+}
+
+.cart-filled b{
+  color: black;
+}
+
+.cart-empty{
+  height: 100px;
+  width: 100%;
+  color: var(--Grayish-blue);
+  font-weight: 700;
+}
+
+.delete-btn{
+  background: none;
+  border: none;
+}
+
+.delete-btn use{
+  
+  transition: fill 0.2s ease-in;
+}
+
+.delete-btn:hover use,
+.delete-btn:focus use{
+  fill: black;
+}
+
+.checkout-btn{
+  margin-top: 1em;
+  width: 100%;
+  display: block;
+  border: none;
+  background: var(--Orange);
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: background 0.2s ease-in;
+}
+
+.checkout-btn:hover,
+.checkout-btn:focus{
+  background: hsl(26, 100%, 65%);
+}
+
+@media (min-width: 1340px) {
+  .cart-container{
+    position: relative;
+  }
+
+  .cart-modal{
+    width: 350px;
+    top: 4em;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* ------------------------------------------------------------------------------------- */
+/* Page Body */
+/* ------------------------------------------------------------------------------------- */
+.page-container{
+  max-width: 1200px;
+}
+
+.page-body{
+  flex-flow: column nowrap;
+}
+
+@media (min-width: 1000px) {
+  .page-body{
+    flex-flow: row nowrap;
+    
+    align-items: center;
+    padding: 2em;
+  }
+
+  .page-body > *{
+    margin: 0 2em;
+  }
+
+
+}
 /* ------------------------------------------------------------------------------------- */
 /* LightBox */
 /* ------------------------------------------------------------------------------------- */
@@ -213,24 +359,26 @@ img{
   position: relative;
   height: 375px;
   overflow: hidden;
+  width: 100%;
+  
 }
 
 .lightbox img{
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: 50% 40%;
   
 }
 
 .lightbox .next{
   position: absolute;
-  right: 1em;
+  right: 5%;
   top: 50%;
 }
 
 .lightbox .previous{
   position: absolute;
-  left: 1em;
+  left: 5%;
   top: 50%;
 }
 
@@ -239,10 +387,37 @@ img{
   width: 2.5em;
   border-radius: 50%;
   border: none;
+  transition: background-color 0.2s ease,
+              opacity 0.2s ease-in;
+  opacity: 0;
+}
+
+.lightbox:hover button{
+  opacity: 1;
+}
+
+.lightbox button > *{
+  
+  width: max-content;
+}
+
+.lightbox button:hover{
+  background-color: white;
+}
+
+.lightbox button path{
+  stroke: currentColor;
+  transition: stroke 0.2s ease;
 }
 
 .lightbox button:hover path{
   stroke: var(--Orange);
+}
+
+@media (min-width: 700px) {
+  .lightbox{
+    height: 100%;
+  }
 }
 
 /* ------------------------------------------------------------------------------------- */
@@ -255,6 +430,7 @@ img{
 
 .product-description{
   width: 100%;
+  max-width: 1000px;
 }
 
 .product-description h1{
@@ -303,6 +479,8 @@ img{
 
 .add-cart{
   width: 100%;
+  flex-direction: column;
+  padding: 0 1em;
 }
 
 .add-cart > *{
@@ -327,26 +505,27 @@ img{
 
 .input button{
   
+  min-height: 2em;
   cursor: pointer;
-  min-width: 1.7em;
-  min-height: 1.7em;
+  
   border: none;
   background: transparent;
-  border-radius: 50%;
-  transition: background-color 0.2s ease-in,
-              box-shadow 0.2s ease-in;
+  
+  
 }
 
-.input button:hover{
-  background-color: hsl(0,0%,0%, 0.05);
-  box-shadow: 0 0 5px 5px hsl(0,0%,0%, 0.05);
+.input button svg{
+  transform: scale(1.4);
 }
 
-.input button:active{
-  background-color: hsl(0,0%,0%, 0.1);
-  box-shadow: 0 0 5px 5px hsl(0,0%,0%, 0.1);
-  transition: background-color 0.1s ease-in,
-              box-shadow 0.1s ease-in;
+.input button use{
+  fill: var(--Orange);
+  transition: fill 0.2s ease-in,
+              transform 0.2s ease-in;
+}
+
+.input button:hover use{
+  fill: hsl(26, 100%, 65%);
 }
 
 .input > * > button{
@@ -360,11 +539,19 @@ img{
 }
 
 .cart-btn{
+  display: block;
   border: none;
   background: var(--Orange);
   color: white;
   border-radius: 10px;
   margin-bottom: 6em;
+  font-weight: 700;
+  transition: 0.2s ease-in;
+}
+
+.cart-btn:hover,
+.cart-btn:focus{
+  background: hsl(26, 100%, 65%);
 }
 
 .cart-btn img{
@@ -381,10 +568,33 @@ img{
   fill: white;
 }
 
+@media (min-width: 1000px) {
+  .add-cart{
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+
+  .add-cart > *{
+    margin: 0 0.3em;
+  }
+  .cart-btn{
+    width: 100%;
+    
+    
+  }
+
+  .input{
+    width:200px;
+  }
+}
+
 @media (min-width: 700px) {
 
   .nav-bar{
-    border-bottom: 2px solid var(--Grayish-blue);
+    border-bottom: 2px solid var(--Light-grayish-blue);
+    margin-bottom: 3em;
   }
   .menu{
     display: none;
@@ -427,4 +637,5 @@ img{
   #nav-links li:hover{
     border-bottom: 5px solid var(--Orange);
   }
+  
 }

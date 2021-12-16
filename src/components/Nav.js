@@ -1,10 +1,13 @@
-
-
 import Avatar from '../images/image-avatar.png'
 import Menu from '../images/icon-menu.svg'
 import CartComponent from '../components/CartComponent'
+import CartModal from './CartModal'
+import { useState } from 'react/cjs/react.development'
 
-const Nav = ({toggleVisible, cartQuantity}) => {
+const Nav = ({toggleVisible, cartQuantity, price, setCartQuantity}) => {
+
+    const [modalOpen, setModalOpen] = useState(false);
+
     return (
             <div className="nav-container">
                 <nav className="nav-bar d-flex justify-content-between align-items-center">
@@ -36,7 +39,11 @@ const Nav = ({toggleVisible, cartQuantity}) => {
                     </div>
                     
                     <div className="cart-avatar d-flex align-items-center">
-                        <CartComponent cartQuantity={cartQuantity}/>
+                        <div className="cart-container">
+                            <CartComponent cartQuantity={cartQuantity} isModal={modalOpen} toggleModal={setModalOpen}/>
+                            <CartModal price={price} cartQuantity={cartQuantity} isModal={modalOpen} setCartQuantity={setCartQuantity}/>
+                        </div>
+                        
                         <img className="avatar" src={Avatar} alt="Avatar" srcset="" />
                     </div>
                 </nav>
