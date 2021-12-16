@@ -1,8 +1,8 @@
-import Avatar from '../images/image-avatar.png'
-import Menu from '../images/icon-menu.svg'
-import CartComponent from '../components/CartComponent'
-import CartModal from './CartModal'
-import { useState } from 'react/cjs/react.development'
+import Avatar from '../images/image-avatar.png';
+import Menu from '../images/icon-menu.svg';
+import CartComponent from '../components/CartComponent';
+import CartModal from './CartModal';
+import { useState } from 'react';
 
 const Nav = ({toggleVisible, cartQuantity, price, setCartQuantity}) => {
 

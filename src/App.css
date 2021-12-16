@@ -609,6 +609,7 @@ img{
   }
 
   #nav-links ul{
+    margin-left: 0 0.5em;
     list-style: none;
   }
 
