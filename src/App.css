@@ -504,12 +504,12 @@ img{
 /* LightBox Modal */
 /* ------------------------------------------------------------------------------------- */
 .fixed-div{
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100vh;
+  height: 100%;
   padding: 2em;
   z-index: 999;
 }
@@ -727,7 +727,8 @@ img{
   border-radius: 10px;
   margin-bottom: 6em;
   font-weight: 700;
-  transition: 0.2s ease-in;
+  transition: 0.2s background ease-in;
+  box-shadow: 0px 15px 40px 0px hsla(26, 100%, 55%, 0.4);
 }
 
 .cart-btn:hover,
