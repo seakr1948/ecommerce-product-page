@@ -171,6 +171,10 @@ img{
   transition: border 0.2s ease-in;
 }
 
+@media (min-width: 700px) {
+  .avatar{width: 45px;}
+}
+
 .avatar:hover,
 .avatar:focus{
   border: 3px solid var(--Orange);
@@ -178,10 +182,12 @@ img{
 
 #nav-links{
   display: none;
+  
 }
 
 .cart-icon{
   position: relative;
+  
 }
 
 #cart-filled{
@@ -202,6 +208,11 @@ img{
   border-radius: 500px;
 }
 
+.cart-icon path{
+  
+  transition: fill 0.2s ease-in;
+}
+
 .cart-icon:hover path{
   fill: black;
   
@@ -220,7 +231,7 @@ img{
   position: absolute;
   border-radius: 10px;
   background: white;
-  width: 80%;
+  width: 90%;
   max-width: 400px;
   top: 6em;
   left: 50%;
@@ -330,7 +341,7 @@ img{
 /* Page Body */
 /* ------------------------------------------------------------------------------------- */
 .page-container{
-  max-width: 1200px;
+  max-width: 800px;
 }
 
 .page-body{
@@ -338,6 +349,10 @@ img{
 }
 
 @media (min-width: 1000px) {
+
+  .page-container{
+    max-width: 1200px;
+  }
   .page-body{
     flex-flow: row nowrap;
     
@@ -360,6 +375,17 @@ img{
   height: 375px;
   overflow: hidden;
   width: 100%;
+}
+
+
+
+.image-container{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.image-container img{
   
 }
 
@@ -367,16 +393,16 @@ img{
   height: 100%;
   object-fit: cover;
   object-position: 50% 40%;
-  
+  cursor: pointer;
 }
 
-.lightbox .next{
+.next{
   position: absolute;
   right: 5%;
   top: 50%;
 }
 
-.lightbox .previous{
+.previous{
   position: absolute;
   left: 5%;
   top: 50%;
@@ -414,10 +440,154 @@ img{
   stroke: var(--Orange);
 }
 
+.thumbnails{
+  margin-top: 1em;
+  display: none;
+}
+
+.thumbnails > *{
+  width: 20%;
+  margin: 3px;
+  
+}
+
+.thumbnail-container{
+  background-color: #999;
+  border-radius: 10px;
+}
+
+.thumbnail-container img{
+  object-fit: cover;
+  border-radius: 10px;
+  overflow: visible;
+}
+
+.thumbnails img:hover{
+  mix-blend-mode: screen;
+}
+
+.thumbnails .selected{
+  outline: 3px solid var(--Orange);
+  overflow: visible;
+}
+
+.thumbnails .selected img{
+  mix-blend-mode: screen;
+}
+
+
 @media (min-width: 700px) {
   .lightbox{
     height: 100%;
+    padding: 0 4em;
   }
+
+  .lightbox .image-container img{
+    border-radius: 1em;
+  }
+
+  .lightbox > img{
+    border-radius: 1em;
+  }
+
+  .thumbnails{
+    display: flex;
+  }
+}
+
+@media (min-width: 1000px) {
+  .lightbox{
+    padding: 0;
+  }
+}
+/* ------------------------------------------------------------------------------------- */
+/* LightBox Modal */
+/* ------------------------------------------------------------------------------------- */
+.fixed-div{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  padding: 2em;
+  z-index: 999;
+}
+
+.lightbox-modal{
+  
+  margin: auto;
+  max-height: 600px;
+  max-width: 600px;
+}
+
+.lightbox-modal .image-container img{
+  border-radius: 1em;
+}
+
+.close{
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
+.close button{
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-size: 35px;
+  color: white;
+  border: none;
+  background: transparent;
+  transition: color 0.2s ease;
+}
+
+.close button:hover{
+  color: var(--Orange);
+}
+
+.lightbox-modal .image-container button{
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 50%;
+  border: none;
+  transition: background-color 0.2s ease,
+              opacity 0.2s ease-in;
+  opacity: 0;
+}
+
+.lightbox-modal .next{
+  right: -2.5%;
+}
+
+.lightbox-modal .previous{
+  left: -2.5%;
+}
+
+.lightbox-modal .thumbnails{
+  padding: 2.5em;
+}
+
+.lightbox-modal:hover button{
+  opacity: 1;
+}
+
+.lightbox-modal button > *{
+  
+  width: max-content;
+}
+
+.lightbox-modal .image-container button:hover{
+  background-color: white;
+}
+
+.lightbox-modal .image-container button path{
+  stroke: currentColor;
+  transition: stroke 0.2s ease;
+}
+
+.lightbox-modal .image-container button:hover path{
+  stroke: var(--Orange);
 }
 
 /* ------------------------------------------------------------------------------------- */
@@ -454,6 +624,11 @@ img{
 /* Price styling */
 /* ------------------------------------------------------------------------------------- */
 
+.price{
+  justify-content:space-between;
+  align-items: center;
+}
+
 #price-actual{
   color: black;
   font-size: 1.5em;
@@ -471,6 +646,15 @@ img{
 #price-msrp{
   color: var(--Grayish-blue);
   text-decoration: line-through;
+}
+
+@media (min-width: 1000px) {
+  .price{
+    
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 }
 
 /* ------------------------------------------------------------------------------------- */
@@ -505,7 +689,7 @@ img{
 
 .input button{
   
-  min-height: 2em;
+  
   cursor: pointer;
   
   border: none;
@@ -515,22 +699,19 @@ img{
 }
 
 .input button svg{
-  transform: scale(1.4);
+  /* transform: scale(1.4); */
 }
 
 .input button use{
   fill: var(--Orange);
   transition: fill 0.2s ease-in,
-              transform 0.2s ease-in;
 }
 
 .input button:hover use{
   fill: hsl(26, 100%, 65%);
 }
 
-.input > * > button{
- width: 100%;
-}
+
 
 #quantity{
   width: 100%;
@@ -601,15 +782,16 @@ img{
   }
 
   #nav-links{
+    
     display: flex;
     align-items: center;
-    
+    margin: 0 0 0 1em;
     list-style: none;
-    margin: 0;
+    
   }
 
   #nav-links ul{
-    margin-left: 0 0.5em;
+    
     list-style: none;
   }
 
@@ -618,8 +800,25 @@ img{
     margin: 0 0.3em;
     height: 100%;
     display: inline;
-    border-bottom: 5px solid transparent;
-    transition: border-bottom 0.2s ease;
+    position: relative;
+  }
+
+  #nav-links li::after{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--Orange);
+    transform: scaleY(0);
+    transition: transform 0.1s ease;
+  }
+
+  #nav-links li:hover::after{
+    transform: scaleY(1);
   }
 
   #nav-links button{
@@ -633,10 +832,6 @@ img{
   #nav-links button:hover,
   #nav-links button:focus{
     color: black;
-  }
-
-  #nav-links li:hover{
-    border-bottom: 5px solid var(--Orange);
   }
   
 }
