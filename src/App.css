@@ -237,7 +237,7 @@ img{
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  box-shadow: 0px 15px 10px 10px hsla(0,0%,0%, 0.3 );
+  box-shadow: rgba(50, 50, 93, 0.15) 0px 15px 30px -10px, rgba(0, 0, 0, 0.15) 0px 30px 60px -30px;
 }
 
 #cart-modal-open{
@@ -385,10 +385,6 @@ img{
   position: relative;
 }
 
-.image-container img{
-  
-}
-
 .lightbox img{
   height: 100%;
   object-fit: cover;
@@ -510,6 +506,7 @@ img{
   left: 0;
   right: 0;
   height: 100%;
+  width: 100vw;
   padding: 2em;
   z-index: 999;
 }
